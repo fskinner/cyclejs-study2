@@ -18,7 +18,7 @@ import 'styles/grids-responsive-min.css';
 const history = useQueries(createHistory)();
 const drivers = {
   DOM: makeDOMDriver('#app'),
-  HTTP: restartable(makeHTTPDriver()),
+  HTTP: makeHTTPDriver(),
   History: makeHistoryDriver(history),
   Props: () => Rx.Observable.just(0)
 };
