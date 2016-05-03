@@ -1,5 +1,5 @@
-const randomModel = ({getRandomUser$, filterRequests$, props$}) => {
-  return filterRequests$
+const randomModel = ({getRandomUser$, filterRequests$$, props$}) => {
+  return filterRequests$$
     .mergeAll()
     .map(res => res.body)
     .startWith(null)

@@ -10,7 +10,7 @@ const randomIntent = (s) => ({
       };
     }),
 
-  filterRequests$: s.HTTP
+  filterRequests$$: s.HTTP
     .filter(res$ => res$.request.url.indexOf(USERS_URL) === 0)
 });
 

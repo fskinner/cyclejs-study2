@@ -1,4 +1,4 @@
-import {h, div, ul, li, a, nav, h1, h2} from '@cycle/dom'
+import { h, div, ul, li, a, nav, h1, h2 } from '@cycle/dom'
 
 const view = () => {
   return div([

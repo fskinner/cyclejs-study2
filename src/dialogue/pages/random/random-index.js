@@ -10,6 +10,6 @@ export default (sources) => {
   return {
     DOM: view(state$),
     HTTP: actions.getRandomUser$,
-    Props: state$
+    // Props: state$
   };
 }

@@ -9,6 +9,6 @@ export default (sources) => {
 
   return {
     DOM: view(state$),
-    Props: state$
+    // Props: state$
   };
 }

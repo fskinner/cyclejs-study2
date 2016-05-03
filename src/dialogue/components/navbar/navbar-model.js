@@ -5,7 +5,7 @@ const model = ({actions}) => {
     url: actions.click$
       .map(event => {
         event.preventDefault();
-        return event.target.href.replace(location.origin, ``);
+        return event.target.href.replace(location.origin, '');
       }),
   }).startWith()
 
