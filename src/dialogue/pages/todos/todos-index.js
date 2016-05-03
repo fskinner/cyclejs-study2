@@ -1,32 +1,14 @@
-import { Observable } from 'rx';
-import { div, ul, li, input } from '@cycle/dom';
+import intent from './todos-intent'
+import model from './todos-model'
+import view from './todos-view'
 
-export default ({ DOM }) => {
-  const todos = ['Study'];
+export default (sources) => {
+  const props$ = sources.Props;
+  const actions = intent(sources);
+  const state$ = model({...actions, props$});
 
-  const todo$ = DOM.select('.todo').events('keyup')
-    .filter(ev => ev.keyCode === 13)
-    .map(ev => ev.target.value)
-    .filter(msg => msg.trim().length)
-    .distinctUntilChanged();
-
-  const todos$ = Observable.of(todos)
-    .merge(todo$)
-    .scan((list, item) => [ ...list, item]);
-
-  const vtree$ = todos$.map(data =>
-    div([
-      input('.todo', {
-        type: 'text',
-        placeholder: 'Todo',
-        autofocus: true,
-        value: ''
-      }),
-      ul(data.map(item =>
-        li('.todo', item)
-      )),
-    ])
-  );
-
-  return { DOM: vtree$ };
+  return {
+    DOM: view(state$),
+    Props: state$
+  };
 }
