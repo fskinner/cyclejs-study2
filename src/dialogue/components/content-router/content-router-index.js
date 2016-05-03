@@ -7,6 +7,7 @@ import Page2      from '../../pages/page2/page2-index';
 import Page404    from '../../pages/page404/page404-index';
 import Todos      from '../../pages/todos/todos-index';
 import Random      from '../../pages/random/random-index';
+import Bmi      from '../../pages/bmi/bmi-index';
 
 function ContentRouter(sources) {
   const sinks$ = sources.History.map(({pathname}) => {
@@ -18,6 +19,7 @@ function ContentRouter(sources) {
       '/page2': Page2,
       '/todos': Todos,
       '/random': Random,
+      '/bmi': Bmi,
       '*': Page404,
     });
 

@@ -1,5 +1,5 @@
 import Cycle from '@cycle/core';
-import {div, button, h1, h4, a} from '@cycle/dom';
+import { div, button, h1, h4, a } from '@cycle/dom';
 
 export default ({ DOM, HTTP }) => {
   const USERS_URL = 'http://jsonplaceholder.typicode.com/users/';
