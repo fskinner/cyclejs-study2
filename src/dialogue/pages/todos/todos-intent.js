@@ -4,6 +4,6 @@ const todosIntent = (s) => ({
     .map(ev => ev.target.value)
     .filter(msg => msg.trim().length)
     .distinctUntilChanged()
-})
+});
 
 export default todosIntent;

@@ -14,6 +14,6 @@ const view = (state$) => {
       )),
     ])
   );
-}
+};
 
-export default view
+export default view;
