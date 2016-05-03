@@ -22,6 +22,7 @@ function main(sources) {
   const Content = contentRouter(sources);
   const Nav = navbar(sources);
   const Props = Content.Props;
+  const Http = Content.HTTP || {};
 
   const view$ = Rx.Observable.just(
     view(
@@ -32,6 +33,7 @@ function main(sources) {
 
   return {
     DOM: view$,
+    HTTP: Http,
     History: Nav.url$,
     Props: Props,
   }

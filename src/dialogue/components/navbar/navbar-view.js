@@ -17,6 +17,9 @@ const view = () => {
         ]),
         li('.nav-item .link', [
           a('.pure-button', {href: '/todos'}, ['Todos'])
+        ]),
+        li('.nav-item .link', [
+          a('.pure-button', {href: '/random'}, ['Rand'])
         ])
       ])
     ])])

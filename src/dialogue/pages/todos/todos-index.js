@@ -14,19 +14,19 @@ export default ({ DOM }) => {
     .merge(todo$)
     .scan((list, item) => [ ...list, item]);
 
-  return {
-    DOM: todos$.map(data =>
-      div([
-        input('.todo', {
-          type: 'text',
-          placeholder: 'Todo',
-          autofocus: true,
-          value: ''
-        }),
-        ul(data.map(item =>
-          li('.todo', item)
-        )),
-      ])
-    )
-  };
+  const vtree$ = todos$.map(data =>
+    div([
+      input('.todo', {
+        type: 'text',
+        placeholder: 'Todo',
+        autofocus: true,
+        value: ''
+      }),
+      ul(data.map(item =>
+        li('.todo', item)
+      )),
+    ])
+  );
+
+  return { DOM: vtree$ };
 }

@@ -36,6 +36,7 @@
     "@cycle/core": "^6.0.3",
     "@cycle/dom": "^9.4.0",
     "@cycle/history": "^2.0.2",
+    "@cycle/http": "^8.2.2",
     "@cycle/isolate": "^1.2.0",
     "css-loader": "^0.23.1",
     "history": "^2.1.0",

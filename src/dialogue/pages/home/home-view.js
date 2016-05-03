@@ -5,7 +5,7 @@ const view = (state$) =>
   state$.map(count =>
     div('.homepage', [
       h1('.content-subhead', ['Home Page']),
-      h1([`Welcome to the Home Page`]),
+      h1(['Welcome to the Home Page']),
       div('.pure-u-1-2 .counter-table',[
         button('.decrement .pure-button .button-error .pure-u-1-2', 'Decrement'),
         button('.increment .pure-button .button-success .pure-u-1-2', 'Increment'),

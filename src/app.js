@@ -1,5 +1,6 @@
 import { run } from '@cycle/core';
 import { makeDOMDriver } from '@cycle/dom';
+import { makeHTTPDriver } from '@cycle/http';
 import { makeHistoryDriver } from '@cycle/history';
 import { useQueries, createHistory } from 'history';
 import Rx from 'rx';
@@ -17,6 +18,7 @@ import 'styles/grids-responsive-min.css';
 const history = useQueries(createHistory)();
 const drivers = {
   DOM: makeDOMDriver('#app'),
+  HTTP: restartable(makeHTTPDriver()),
   History: makeHistoryDriver(history),
   Props: () => Rx.Observable.just(0)
 };
