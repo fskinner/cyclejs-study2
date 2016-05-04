@@ -4,10 +4,10 @@ const todosIntent = (s) => ({
     .map(e => e.target.value)
     .filter(msg => msg.trim().length)
     .distinctUntilChanged()
-    .map((todo, index) => ({id: (index+1).toString(), text: todo, action: 'add'})),
+    .map((todo, index) => ({ action: 'addTodo', text: todo })),
 
   removeTodo$: s.DOM.select('.remove-todo').events('click')
-    .map(e => ({id: e.target.value.toString(), action: 'remove'}))
+    .map(e => ({ action: 'removeTodo', id: e.target.value }))
 });
 
 export default todosIntent;
