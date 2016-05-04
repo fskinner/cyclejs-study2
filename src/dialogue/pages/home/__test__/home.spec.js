@@ -1,14 +1,12 @@
-import test               from 'tape'
-import {Observable}       from 'rx'
-import {mockDOMSource,
-  div,
-  makeDOMDriver}    from '@cycle/dom'
-import Cycle              from '@cycle/core'
-import intent             from '../home-intent'
-import model              from '../home-model'
-import view               from '../home-view'
-import mockClickEvent     from './mockClickEvent'
-import createRenderTarget from '../../../../__test__/helper/createRenderTarget'
+import test from 'tape';
+import { Observable } from 'rx';
+import { mockDOMSource, div, makeDOMDriver } from '@cycle/dom';
+import Cycle from '@cycle/core';
+import intent from '../home-intent';
+import model from '../home-model';
+import view from '../home-view';
+import mockClickEvent from './mockClickEvent';
+import createRenderTarget from '../../../../__test__/helper/createRenderTarget';
 
 //const userEvents = mockDOMSource({
 //  '.foo': {
@@ -46,10 +44,8 @@ import createRenderTarget from '../../../../__test__/helper/createRenderTarget'
 
 
 test('HOME TESTS #', function (t) {
-
   t.test('click event', function (q) {
     q.plan(2);
-
 
     const props$ = Rx.Observable.just(4).delay(50);
     const dec$ = Rx.Observable.just(7).delay(100);
@@ -58,7 +54,6 @@ test('HOME TESTS #', function (t) {
     model({inc$, dec$, props$}).skip(2).subscribe( results =>
       q.equal(results, 12, 'make this equal')
     );
-
 
     //const mockedDOM = mockDOMSource({
     //  '.link': {

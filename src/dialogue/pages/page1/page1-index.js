@@ -1,5 +1,5 @@
-import Rx   from 'rx'
-import view from './page1-view'
+import Rx from 'rx';
+import view from './page1-view';
 
 const Page1 = (sources) => {
   const props$ = sources.Props;

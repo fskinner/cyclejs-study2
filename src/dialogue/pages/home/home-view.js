@@ -1,4 +1,4 @@
-import {h, div, h1, h2, button, p} from '@cycle/dom'
+import { h, div, h1, h2, button, p } from '@cycle/dom'
 
 const view = (state$) =>
   // mapping over our merged model to update 'count'

@@ -1,13 +1,13 @@
 import switchPath from 'switch-path';
-import Rx         from 'rx';
-import isolate    from '@cycle/isolate';
-import Home       from '../../pages/home/home-index';
-import Page1      from '../../pages/page1/page1-index';
-import Page2      from '../../pages/page2/page2-index';
-import Page404    from '../../pages/page404/page404-index';
-import Todos      from '../../pages/todos/todos-index';
-import Random      from '../../pages/random/random-index';
-import Bmi      from '../../pages/bmi/bmi-index';
+import Rx from 'rx';
+import isolate from '@cycle/isolate';
+import Home from 'pages/home/home-index';
+import Page1 from 'pages/page1/page1-index';
+import Page2 from 'pages/page2/page2-index';
+import Page404 from 'pages/page404/page404-index';
+import Todos from 'pages/todos/todos-index';
+import Random from 'pages/random/random-index';
+import Bmi from 'pages/bmi/bmi-index';
 
 function ContentRouter(sources) {
   const sinks$ = sources.History.map(({pathname}) => {

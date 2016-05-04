@@ -1,4 +1,4 @@
-import latestObj from 'rx-combine-latest-obj'
+import latestObj from 'rx-combine-latest-obj';
 
 const model = ({actions}) => {
   return latestObj({

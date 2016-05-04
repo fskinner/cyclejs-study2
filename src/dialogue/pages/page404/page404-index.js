@@ -1,8 +1,8 @@
-import Rx   from 'rx'
-import view from './page404-view'
+import { Observable } from 'rx';
+import view from './page404-view';
 
 const Page404 = () => {
-  const view$ = Rx.Observable.just(view());
+  const view$ = Observable.just(view());
   return {
     DOM: view$
   }

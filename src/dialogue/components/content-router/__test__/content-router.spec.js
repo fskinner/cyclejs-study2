@@ -1,10 +1,10 @@
-import test                 from 'tape'
-import Rx                   from 'rx'
-import Cycle                from '@cycle/core'
-import {div, makeDOMDriver} from '@cycle/dom'
-import {makeHistoryDriver}  from '@cycle/history';
-import contentRouter        from '../content-router-index'
-import createRenderTarget   from '../../../../__test__/helper/createRenderTarget'
+import test from 'tape';
+import Rx from 'rx';
+import Cycle from '@cycle/core';
+import { div, makeDOMDriver } from '@cycle/dom';
+import { makeHistoryDriver } from '@cycle/history';
+import contentRouter from '../content-router-index';
+import createRenderTarget from '../../../../__test__/helper/createRenderTarget';
 
 const url = {
   home: {path: `/`},

@@ -1,4 +1,4 @@
-import Rx from 'rx'
+import Rx from 'rx';
 
 const getUrl = event => event.target.href.replace(location.origin, ``);
 

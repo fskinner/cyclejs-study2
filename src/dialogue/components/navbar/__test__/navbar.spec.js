@@ -1,15 +1,14 @@
-import test             from 'tape'
-import {Observable}     from 'rx'
-import {mockDOMSource}  from '@cycle/dom'
-import navbarIntent     from '../navbar-intent'
-import navbarModel      from '../navbar-model'
-import mockClickEvent   from './mockClickEvent'
+import test from 'tape';
+import { Observable } from 'rx';
+import { mockDOMSource } from '@cycle/dom';
+import navbarIntent from '../navbar-intent';
+import navbarModel from '../navbar-model';
+import mockClickEvent from './mockClickEvent';
 
 // get location port
 const port = ':' + location.port;
 
 test('NAVBAR TESTS #', function (t) {
-
   t.test('click event', function (q) {
     q.plan(2);
 
