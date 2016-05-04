@@ -1,16 +1,19 @@
-import { div, ul, li, input } from '@cycle/dom';
+import { div, ul, li, input, span, button } from '@cycle/dom';
 
 const view = (state$) => {
-  return state$.map(data =>
+  return state$.map(todos =>
     div([
-      input('.todo', {
+      input('.todo-input', {
         type: 'text',
         placeholder: 'Todo',
         autofocus: true,
         value: ''
       }),
-      ul(data.map(item =>
-        li('.todo', item)
+      ul(todos.map(todo =>
+        li('.list-item',[
+          span('.todo ', todo.text),
+          button('.remove-todo', {type: 'button', value: todo.id}, 'remove')
+        ])
       )),
     ])
   );
