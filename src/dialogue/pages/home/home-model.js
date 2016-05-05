@@ -1,7 +1,7 @@
 import { Observable } from 'rx';
 // merging our clicks from our intent
 // (a,b) -> num
-const homeModel = ({inc$,dec$, props$}) => {
+const homeModel = ({inc$, dec$, props$}) => {
   return Observable.merge(
     props$.take(1).map((counter) => parseFloat(counter)),
     inc$,

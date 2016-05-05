@@ -20,7 +20,7 @@ const drivers = {
   DOM: makeDOMDriver('#app'),
   HTTP: makeHTTPDriver(),
   History: makeHistoryDriver(history),
-  Props: () => Rx.Observable.just(0)
+  Props: () => Rx.Observable.just({ Counter: 0})
 };
 
 const rerun = rerunner(run);
