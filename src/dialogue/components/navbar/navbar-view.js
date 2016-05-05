@@ -23,6 +23,9 @@ const view = () => {
         ]),
         li('.nav-item .link', [
           a('.pure-button', {href: '/bmi'}, ['BMI'])
+        ]),
+        li('.nav-item .link', [
+          a('.pure-button', {href: '/tvviter'}, ['Tvviter'])
         ])
       ])
     ])])
