@@ -9,7 +9,7 @@ const view = (state$) => {
         autofocus: true,
         value: ''
       }),
-      ul(todos.map(todo =>
+      ul(todos.items.map(todo =>
         li('.list-item',[
           span('.todo ', todo.text),
           button('.remove-todo', {type: 'button', value: todo.id}, 'remove')

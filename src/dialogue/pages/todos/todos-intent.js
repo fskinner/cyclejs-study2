@@ -3,11 +3,10 @@ const todosIntent = (s) => ({
     .filter(e => e.keyCode === 13)
     .map(e => e.target.value)
     .filter(msg => msg.trim().length)
-    .distinctUntilChanged()
-    .map((todo, index) => ({ action: 'addTodo', text: todo })),
+    .distinctUntilChanged(),
 
   removeTodo$: s.DOM.select('.remove-todo').events('click')
-    .map(e => ({ action: 'removeTodo', id: e.target.value }))
+    .map(e => e.target.value)
 });
 
 export default todosIntent;
