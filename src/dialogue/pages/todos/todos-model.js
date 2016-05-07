@@ -1,6 +1,9 @@
 import { Observable } from 'rx';
 
-const initialState = { items: [{ id: "0", text: 'Study', completed: false }]};
+const initialState = {
+  items: [{ id: "0", text: 'Study', completed: false }],
+  archive: []
+};
 
 const idIncrement = (array) => (array[array.length - 1].id + 1);
 
@@ -12,11 +15,13 @@ const Operations = {
         text: todoText,
         completed: false
       }
-    ]
+    ],
+    archive: state.archive
   }),
 
   Remove: todoId => state => ({
-    items: state.items.filter(x => x.id !== todoId)
+    items: state.items.filter(x => x.id !== todoId),
+    archive: state.archive
   }),
 
   Complete: todoId => state => ({
@@ -25,16 +30,25 @@ const Operations = {
         x.completed = true;
       }
       return x;
-    })
+    }),
+    archive: state.archive
+  }),
+
+  Archive: completeStatus => state => ({
+    items: state.items.filter(x => x.completed !== completeStatus),
+    archive: state.archive.concat(state.items.filter(x => x.completed === completeStatus))
   })
 };
 
-const todosModel = ({addTodo$, removeTodo$, completeTodo$}) => {
-  const addOp$ = addTodo$.map(item => Operations.Add(item));
-  const removeOp$ = removeTodo$.map(item => Operations.Remove(item));
-  const completeOp$ = completeTodo$.map(item => Operations.Complete(item));
+const todosModel = ({addTodo$, removeTodo$, completeTodo$, archiveComplete$}) => {
+  const addOp$ = addTodo$.map(todo => Operations.Add(todo));
+  const removeOp$ = removeTodo$.map(todoId => Operations.Remove(todoId));
+  const completeOp$ = completeTodo$.map(todoId => Operations.Complete(todoId));
+  const archiveCompleteOp$ = archiveComplete$.map( _ => Operations.Archive(true));
 
-  const allOperations$ = Observable.merge(addOp$, removeOp$, completeOp$);
+  const allOperations$ = Observable.merge(
+    addOp$, removeOp$, completeOp$, archiveCompleteOp$
+  );
 
   const state$ = allOperations$.startWith(initialState).
       scan((state, operation) => operation(state));

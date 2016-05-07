@@ -9,7 +9,9 @@ const todosIntent = (s) => ({
     .map(e => e.target.value),
 
   completeTodo$: s.DOM.select('.complete-todo').events('click')
-    .map(e => e.target.value)
+    .map(e => e.target.value),
+
+  archiveComplete$: s.DOM.select('.archive').events('click')
 });
 
 export default todosIntent;
