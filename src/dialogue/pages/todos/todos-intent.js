@@ -6,6 +6,9 @@ const todosIntent = (s) => ({
     .distinctUntilChanged(),
 
   removeTodo$: s.DOM.select('.remove-todo').events('click')
+    .map(e => e.target.value),
+
+  completeTodo$: s.DOM.select('.complete-todo').events('click')
     .map(e => e.target.value)
 });
 

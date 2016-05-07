@@ -11,8 +11,9 @@ const view = (state$) => {
       }),
       ul(todos.items.map(todo =>
         li('.list-item',[
-          span('.todo ', todo.text),
-          button('.remove-todo', {type: 'button', value: todo.id}, 'remove')
+          span(`.todo ${todo.completed ? '.completed' : ''}`, todo.text),
+          button('.remove-todo', {type: 'button', value: todo.id}, 'remove'),
+          button('.complete-todo', {type: 'button', value: todo.id}, 'mark as done')
         ])
       )),
     ])
