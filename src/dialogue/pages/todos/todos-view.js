@@ -16,8 +16,10 @@ const view = (state$) => {
           button('.complete-todo', {type: 'button', value: todo.id}, 'mark as done')
         ])
       )),
-      button('.archive', {type: 'button'}, 'Archive completed'),
-      span('.archive-info', `${todos.archive.length} archived todos`)
+      div('.archive-actions', [
+        button('.archive', {type: 'button'}, 'Archive completed'),
+        span('.archive-info', `${todos.archive.length} archived todos`)
+      ])
     ])
   );
 };

@@ -8,7 +8,6 @@ import Page404 from 'pages/page404/page404-index';
 import Random from 'pages/random/random-index';
 import Bmi from 'pages/bmi/bmi-index';
 import Todos from 'pages/todos/todos-index';
-import Tvviter from 'pages/tvviter/tvviter-index';
 
 function ContentRouter(sources) {
   const sinks$ = sources.History.map(({pathname}) => {
@@ -21,7 +20,6 @@ function ContentRouter(sources) {
       '/todos': Todos,
       '/random': Random,
       '/bmi': Bmi,
-      '/tvviter': Tvviter,
       '*': Page404,
     });
 

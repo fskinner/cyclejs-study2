@@ -215,9 +215,16 @@ h3 {
   float: right;
 }
 
+.archive-actions {
+  margin-top: 30px;
+  width: 70%;
+  border-top: 1px solid #ccc;
+  padding-top: 5px;
+}
+
 .archive-info {
   margin-left: 10px;
   font-size: 13px;
   color: #ccc;
-
+  float: right;
 }
