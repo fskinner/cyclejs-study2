@@ -5,7 +5,13 @@ const initialState = {
   archive: []
 };
 
-const idIncrement = (array) => (array[array.length - 1].id + 1);
+const idIncrement = (array) => {
+  if(array.length === 0) {
+    return 0;
+  }
+
+  return array[array.length - 1].id + 1
+};
 
 const Operations = {
   Add: todoText => state => ({
