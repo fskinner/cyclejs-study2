@@ -11,6 +11,9 @@ const todosIntent = (s) => ({
   markTodo$: s.DOM.select('.mark-todo').events('click')
     .map(e => e.target.value),
 
+  unmarkTodo$: s.DOM.select('.unmark-todo').events('click')
+    .map(e => e.target.value),
+
   archiveComplete$: s.DOM.select('.archive').events('click')
 });
 

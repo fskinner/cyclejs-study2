@@ -13,7 +13,8 @@ const view = (state$) => {
         li('.list-item',[
           span(`.todo ${todo.completed ? '.completed' : ''}`, todo.text),
           button('.remove-todo', {type: 'button', value: todo.id}, 'remove'),
-          button('.mark-todo', {type: 'button', value: todo.id}, 'mark as done')
+          todo.completed ? button('.unmark-todo', {type: 'button', value: todo.id}, 'unmark') : '',
+          !todo.completed ? button('.mark-todo', {type: 'button', value: todo.id}, 'mark as done') : ''
         ])
       )),
       div('.archive-actions', [

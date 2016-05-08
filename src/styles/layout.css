@@ -201,7 +201,8 @@ h3 {
   width: 50%;
 }
 
-.mark-todo {
+.mark-todo,
+.unmark-todo {
   float: right;
   margin-right: 5px;
 }
