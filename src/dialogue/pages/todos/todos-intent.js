@@ -1,3 +1,4 @@
+
 const todosIntent = (s) => ({
   addTodo$: s.DOM.select('.todo-input').events('keyup')
     .filter(e => e.keyCode === 13)
@@ -17,7 +18,7 @@ const todosIntent = (s) => ({
   archiveComplete$: s.DOM.select('.archive').events('click'),
 
   toggleEdit$: s.DOM.select('.todo').events('click')
-    .buffer( _ => s.DOM.select('.todo').events('click').debounce(250))
+    .buffer(s.DOM.select('.todo').events('click').debounce(250))
     .filter(events => events.length === 2)
     .map(e => e[0].target.getAttribute('data-id')),
 
