@@ -24,7 +24,7 @@ const Operations = {
     archive: state.archive
   }),
 
-  Complete: todoId => state => ({
+  Mark: todoId => state => ({
     items: state.items.map(x => {
       if(x.id === todoId) {
         x.completed = true;
@@ -40,14 +40,14 @@ const Operations = {
   })
 };
 
-const todosModel = ({addTodo$, removeTodo$, completeTodo$, archiveComplete$}) => {
+const todosModel = ({addTodo$, removeTodo$, markTodo$, archiveComplete$}) => {
   const addOp$ = addTodo$.map(todo => Operations.Add(todo));
   const removeOp$ = removeTodo$.map(todoId => Operations.Remove(todoId));
-  const completeOp$ = completeTodo$.map(todoId => Operations.Complete(todoId));
+  const markOp$ = markTodo$.map(todoId => Operations.Mark(todoId));
   const archiveCompleteOp$ = archiveComplete$.map( _ => Operations.Archive(true));
 
   const allOperations$ = Observable.merge(
-    addOp$, removeOp$, completeOp$, archiveCompleteOp$
+    addOp$, removeOp$, markOp$, archiveCompleteOp$
   );
 
   const state$ = allOperations$.startWith(initialState).

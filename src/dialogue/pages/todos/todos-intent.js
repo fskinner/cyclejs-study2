@@ -8,7 +8,7 @@ const todosIntent = (s) => ({
   removeTodo$: s.DOM.select('.remove-todo').events('click')
     .map(e => e.target.value),
 
-  completeTodo$: s.DOM.select('.complete-todo').events('click')
+  markTodo$: s.DOM.select('.mark-todo').events('click')
     .map(e => e.target.value),
 
   archiveComplete$: s.DOM.select('.archive').events('click')
