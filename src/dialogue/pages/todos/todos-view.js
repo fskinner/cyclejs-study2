@@ -6,12 +6,12 @@ const view = (state$) => {
       input('.todo-input', {
         type: 'text',
         placeholder: 'Todo',
-        autofocus: true,
         value: ''
       }),
       ul(todos.items.map(todo =>
         li('.list-item',[
-          span(`.todo ${todo.completed ? '.completed' : ''}`, todo.text),
+          todo.editing ? input('.todo-edit', {type: 'text', value: todo.text, autofocus: true, attributes: { 'data-id': todo.id }}) : '',
+          !todo.editing ? span(`.todo ${todo.completed ? '.completed' : ''}`, { attributes: { 'data-id': todo.id }}, todo.text) : '',
           button('.remove-todo', {type: 'button', value: todo.id}, 'remove'),
           todo.completed ? button('.unmark-todo', {type: 'button', value: todo.id}, 'unmark') : '',
           !todo.completed ? button('.mark-todo', {type: 'button', value: todo.id}, 'mark as done') : ''

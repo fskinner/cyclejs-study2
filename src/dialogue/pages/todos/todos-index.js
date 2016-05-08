@@ -5,7 +5,7 @@ import view from './todos-view';
 export default (sources) => {
   // const props$ = sources.Props;
   const actions = intent(sources);
-  const state$ = model({...actions});
+  const state$ = model(actions);
 
   return {
     DOM: view(state$),

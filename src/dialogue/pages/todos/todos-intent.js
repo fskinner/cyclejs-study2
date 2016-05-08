@@ -14,7 +14,21 @@ const todosIntent = (s) => ({
   unmarkTodo$: s.DOM.select('.unmark-todo').events('click')
     .map(e => e.target.value),
 
-  archiveComplete$: s.DOM.select('.archive').events('click')
+  archiveComplete$: s.DOM.select('.archive').events('click'),
+
+  toggleEdit$: s.DOM.select('.todo').events('click')
+    .buffer( _ => s.DOM.select('.todo').events('click').debounce(250))
+    .filter(events => events.length === 2)
+    .map(e => e[0].target.getAttribute('data-id')),
+
+  cancelEdit$: s.DOM.select('.todo-edit').events('keyup')
+    .filter(e => e.keyCode === 27)
+    .map(e => e.target.getAttribute('data-id')),
+
+  editTodo$: s.DOM.select('.todo-edit').events('keyup')
+    .filter(e => e.keyCode === 13)
+    .filter(e => e.target.value.trim().length)
+    .map(e => ({ id: e.target.getAttribute('data-id'), text: e.target.value }))
 });
 
 export default todosIntent;
