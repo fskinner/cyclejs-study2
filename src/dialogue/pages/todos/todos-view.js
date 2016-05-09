@@ -1,12 +1,24 @@
 import { div, ul, li, input, span, button } from '@cycle/dom';
 
+function todoBody(todo) {
+  if(todo.editing) {
+    return input('.todo-edit', {type: 'text', value: todo.text, autofocus: true, attributes: { 'data-id': todo.id }});
+  }
+  return span(`.todo ${todo.completed ? '.completed' : ''}`, { attributes: { 'data-id': todo.id }}, todo.text);
+}
+
+function markTodoButtons(todo) {
+  if(todo.completed) {
+    return button('.unmark-todo', {key: `mark-${todo.id}`, type: 'button', value: todo.id}, 'unmark');
+  }
+  return button('.mark-todo', {key: `unmark-${todo.id}`, type: 'button', value: todo.id}, 'mark as done');
+}
+
 function todoItem(todo) {
   return li('.list-item',[
-    todo.editing ? input('.todo-edit', {type: 'text', value: todo.text, autofocus: true, attributes: { 'data-id': todo.id }}) : '',
-    !todo.editing ? span(`.todo ${todo.completed ? '.completed' : ''}`, { attributes: { 'data-id': todo.id }}, todo.text) : '',
+    todoBody(todo),
     button('.remove-todo', {type: 'button', value: todo.id}, 'remove'),
-    todo.completed ? button('.unmark-todo', {type: 'button', value: todo.id}, 'unmark') : '',
-    !todo.completed ? button('.mark-todo', {type: 'button', value: todo.id}, 'mark as done') : ''
+    markTodoButtons(todo)
   ]);
 }
 
