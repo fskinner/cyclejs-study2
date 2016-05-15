@@ -25,6 +25,7 @@ function todoItem(todo) {
 function footer(todos) {
   return div('.archive-actions', [
     button('.archive', {type: 'button'}, 'Archive completed'),
+    button('.clear', {type: 'button'}, 'Clear completed'),
     span('.archive-info', `${todos.archive.length} archived todos`)
   ]);
 }

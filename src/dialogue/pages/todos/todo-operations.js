@@ -57,7 +57,12 @@ const Operations = {
       return x;
     }),
     archive: state.archive
-  })
+  }),
+
+  Clear: completeStatus => state => ({
+    items: state.items.filter(x => x.completed !== completeStatus),
+    archive: state.archive
+  }),
 };
 
 export default Operations;

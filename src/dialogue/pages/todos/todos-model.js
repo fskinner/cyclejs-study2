@@ -14,6 +14,7 @@ const todosModel = (actions) => {
   const unmarkOp$ = actions.unmarkTodo$.map(todoId => Operations.Mark(todoId, false));
 
   const archiveCompleteOp$ = actions.archiveComplete$.map( _ => Operations.Archive(true));
+  const clearCompleteOp$ = actions.clearComplete$.map( _ => Operations.Clear(true));
 
   const toggleEditOp$ = actions.toggleEdit$.map(todoId => Operations.ToggleEdit(todoId, true));
   const cancelEditOp$ = actions.cancelEdit$.map(todoId => Operations.ToggleEdit(todoId, false));
@@ -22,7 +23,7 @@ const todosModel = (actions) => {
   const allOperations$ = Observable.merge(
     addOp$, removeOp$, markOp$, unmarkOp$,
     archiveCompleteOp$, toggleEditOp$, cancelEditOp$,
-    saveEditOp$
+    saveEditOp$, clearCompleteOp$
   );
 
   const state$ = allOperations$

@@ -29,7 +29,10 @@ const todosIntent = (s) => ({
   editTodo$: s.DOM.select('.todo-edit').events('keyup')
     .filter(e => e.keyCode === 13)
     .filter(e => e.target.value.trim().length)
-    .map(e => ({ id: e.target.getAttribute('data-id'), text: e.target.value }))
+    .map(e => ({ id: e.target.getAttribute('data-id'), text: e.target.value })),
+
+  clearComplete$: s.DOM.select('.clear').events('click'),
+
 });
 
 export default todosIntent;
